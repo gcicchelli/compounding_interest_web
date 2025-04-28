@@ -1,12 +1,22 @@
-
 function calculateInterest() {
     let principal = parseFloat(document.getElementById('principal').value);
-    let interestRate = parseFloat(document.getElementById('interestRate').value) / 100;
+    let interestRate = parseFloat(document.getElementById('interestRate').value);
     let timePeriod = parseFloat(document.getElementById('timePeriod').value);
     let compoundingFrequency = parseFloat(document.getElementById('compoundingFrequency').value);
 
-    let amount = principal * Math.pow((1 + interestRate / compoundingFrequency), compoundingFrequency * timePeriod);
+    // Convert percentage into decimal
+    let rateDecimal = interestRate / 100;
+
+    // Compound Interest Formula
+    let amount = principal * Math.pow((1 + rateDecimal / compoundingFrequency), compoundingFrequency * timePeriod);
     let interestAmt = amount - principal;
 
-    document.getElementById('result').innerText = "Total Interest Accrued is: $" + interestAmt.toFixed(2);
+    // Format principal and interest with commas
+    let formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
+    document.getElementById('result').innerText = 
+        "Total Interest Paid is: " + formatter.format(interestAmt);
 }
