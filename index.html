@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Interest Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <h1>Interest Calculator</h1>
+        <form id="interestForm">
+            <label>Principal Amount ($):</label>
+            <input type="number" id="principal" required><br>
+
+            <label>Interest Rate (%):</label>
+            <input type="number" id="interestRate" step="0.01" required><br>
+
+            <label>Time Period (Years):</label>
+            <input type="number" id="timePeriod" required><br>
+
+            <label>Compounding Frequency (Times per Year):</label>
+            <input type="number" id="compoundingFrequency" required><br>
+
+            <button type="button" onclick="calculateInterest()">Calculate</button>
+        </form>
+        <h2 id="result"></h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
